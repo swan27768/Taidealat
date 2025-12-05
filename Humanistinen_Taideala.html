@@ -463,9 +463,7 @@ a.external-link:active,
   }
 }
 
-/* ============================================================
-   8. JUOKSEVA RIVI (AMMATTITICKER)
-   ============================================================ */
+/* JUOKSEVA RIVI (AMMATTITICKER) – PERUSMALLI */
 
 .scroll-row {
   width: 100%;
@@ -473,7 +471,7 @@ a.external-link:active,
   white-space: nowrap;
   margin: 1.5rem 0;
   padding: 0.6rem 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.4);    /* vaihda tarvittaessa */
   border-top: 2px solid #ffb347;
   border-bottom: 2px solid #ffb347;
 }
@@ -483,9 +481,24 @@ a.external-link:active,
   white-space: nowrap;
   will-change: transform;
   font-size: 1.05rem;
+  font-weight: 600;
   color: var(--accent-1);
   animation: scroll-left 40s linear infinite;
 }
+
+@keyframes scroll-left {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+
+/* Sama logiikka kuin silloin, kun se toimi: teksti tulee oikealta ja menee vasemmalle */
+@keyframes scroll-left {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+
 
 /* ============================================================
    9. KOULUKORTIT (GRID)
@@ -1206,12 +1219,8 @@ window.confirmExitStory = function () {
 </script><tw-passagedata pid="1" name="Start" tags="" position="575,100" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;HUMANISTINEN  JA TAIDEALA&lt;/h1&gt;
   &lt;hr&gt;
-&lt;div class=&quot;scroll-row&quot;&gt;
-    &lt;div class=&quot;scroll-content&quot;&gt;
-       
-      Kuvataiteilija • Graafinen suunnittelija • Muusikko • Tanssija • Artesaani • Valokuvaaja • Näyttelijä • Mediatuottaja • • •
-    &lt;/div&gt;
-  &lt;/div&gt;
+&lt;div class=&quot;scroll-row&quot;&gt;&lt;span class=&quot;scroll-content&quot;&gt;Kuvataiteilija • Graafinen suunnittelija • Mediapalvelujen toteuttaja • Muusikko • Tanssija • Teatteritaiteilija • Näyttelijä • Valokuvaaja • Videokuvaaja • Mediatuottaja • Äänisuunnittelija • Käsikirjoittaja • Animaattori • Illustrator • Keramiikkataiteilija • Korusuunnittelija • Sirkustaiteilija • Kulttuurituottaja • Taidepedagogi • Draamaohjaaja • Nuoriso- ja yhteisöohjaaja • Lastenohjaaja • Yhteisöpedagogi • Kieltenopettaja • Viittomakielen ohjaaja • Kirjastonhoitaja • Somesisällöntuottaja • Mediavisualisti •&lt;/span&gt;&lt;/div&gt;
+
   &lt;p&gt;
  &lt;strong&gt;Taideala&lt;/strong&gt; tarjoaa mahdollisuuden ilmaista itseään ja käyttää luovuutta monissa eri tehtävissä. Alalla voi esimerkiksi piirtää, kuvata, esiintyä, muotoilla tai tuottaa mediasisältöjä.
 
