@@ -1028,6 +1028,68 @@ a.external-link:active,
   transform: translateY(2px);
   box-shadow: 0 2px 0 rgba(0,0,0,0.55);
 }
+/* ============================= */
+/* TAIDEALAN KANSI — HEHKU & GALLERIA */
+/* ============================= */
+
+.cover-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 70vh;
+
+  /* Taidehenkinen gradientti */
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 179, 71, 0.45), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255, 79, 129, 0.45), transparent 60%),
+    radial-gradient(circle at 50% 10%, rgba(122, 211, 255, 0.40), transparent 60%),
+    #150926;
+
+  /* ”Kehys” galleriamaisesti */
+  border-top: 8px solid #ffb347;
+  border-bottom: 8px solid #ff4f81;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+
+  padding: 2.5rem 1rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cover-art h1 {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  /* Iso, näyttävä otsikko */
+  font-size: 3.4rem;
+  letter-spacing: 0.20em;
+
+  /* Hohtava taideväri */
+  background: linear-gradient(90deg, #ffb347, #ff4f81, #7ad3ff);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+.cover-art:hover {
+  cursor: pointer;
+  filter: brightness(1.08);
+  transform: scale(1.01);
+  transition: 0.25s ease;
+}
+
+/* Mobiili */
+@media (max-width: 768px) {
+  .cover-art h1 {
+    font-size: 2.4rem;
+    letter-spacing: 0.14em;
+  }
+}
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ============================================================
    AUTOMAATTINEN NAVIPALKIN JA POISTU-NAPIN LUONTI (SugarCube)
    ============================================================ */
@@ -1315,7 +1377,7 @@ Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia teknii
   &lt;hr&gt;
 
   &lt;p&gt;
-    Valitse jokin [alan] ammatti, joka sinua kiinnostaa. Tutki sitä luotettavista lähteistä (esim. Työmarkkinatori, Duunitori, oppilaitosten sivut). Vastaa kysymyksiin mahdollisimman konkreettisesti ja &lt;strong&gt; omin sanoin&lt;/strong&gt;.
+Valitse jokin humanistisen tai taidealan ammatti, joka sinua kiinnostaa. Tutki sitä luotettavista lähteistä (esim. Työmarkkinatori, Duunitori, oppilaitosten sivut). Vastaa kysymyksiin mahdollisimman konkreettisesti ja &lt;strong&gt; omin sanoin&lt;/strong&gt;.
   &lt;/p&gt;
 
   &lt;p&gt;
@@ -1323,83 +1385,100 @@ Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia teknii
   &lt;/p&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;1. Ammatin nimi&lt;/label&gt;
+    &lt;h3&gt;1. Mikä taidealan ammatti kiinnostaa sinua?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Mihin taidealan tai humanistisen alan] ammattiin tutustut tarkemmin?
+      Minkä ammatin valitsisit, jos saisit suunnitella oman tulevaisuutesi? Mikä siinä ammatissa viehättää sinua (esim. luovuus, esiintyminen, visuaalisuus, käsillä tekeminen…)?
     &lt;/p&gt;
      &lt;&lt;textbox &quot;$ammattiNimi&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;2. Koulutuspolku ammattiin&lt;/label&gt;
+    &lt;h3&gt;2. Mikä koulutus ja oppilaitos johtaa tähän ammattiin?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Kuvaile, millaisia koulutuspolkuja tähän ammattiin voi johtaa
-      (esim. peruskoulu → ammatillinen koulutus → työelämä → AMK).
+ Missä tätä alaa voi opiskella? (Ammatillinen koulutus, kansanopisto, lukio + jatkokoulutus, AMK, yliopisto…)  Millaista osaamista tai taitoja koulutuksessa tarvitaan? (esim. portfolio, pääsykokeet, taidot somessa, musikaalisuus, kuvallinen ilmaisu…)
     &lt;/p&gt;
     &lt;&lt;textbox &quot;$KoulutusPolku&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;3. Mitä työtehtäviä ammatissa tehdään?&lt;/label&gt;
+    &lt;h3&gt;3. Miltä työtehtävät ja työpäivät tässä ammatissa voisivat tuntua?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Kerro esimerkkejä työtehtävistä ja työn sisällöstä.
+Mitä tekisit työssäsi? (esim. kuvaamista, editointia, piirtämistä, esiintymistä, suunnittelua, asiakastyötä, harjoittelua, projektityötä…)
+Millainen rytmi työssä on: päivätyö, esityskaudet, keikkatyö, projektit?
+Sopisiko tällainen arki sinulle?
     &lt;/p&gt;
     &lt;&lt;textbox &quot;$tyotehtavat&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;4. Missä työpaikoissa voi työskennellä?&lt;/label&gt;
+    &lt;h3&gt;4. Missä paikoissa tai ympäristöissä tätä työtä voi tehdä?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Millaisissa yrityksissä tai organisaatioissa tätä työtä tehdään?
+Onko työ studiossa, teatterissa, keikkapaikoilla, mediatoimistossa, koulussa, omassa työhuoneessa, ulkona…?
+Millainen työympäristö tuntuu sinulle sopivalta: rauhallinen, luova tiimi, omatoiminen työskentely, esiintyminen ihmisten edessä?
     &lt;/p&gt;
  &lt;&lt;textbox &quot;$tyopaikat&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;5. Mitä vahvuuksia ammatissa tarvitaan?&lt;/label&gt;
+    &lt;h3&gt;5. Mitkä omat taitosi ja vahvuutesi sopivat tähän ammattiin?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Esimerkiksi huolellisuus, käden taidot, vuorovaikutustaidot, kielitaito...
+Esimerkiksi: luovuus, ideointi, rohkeus, esiintymistaito, keskittyminen, tekninen osaaminen (kamera, editointi, ohjelmat), tiimityö, visuaalinen silmä, oma-aloitteisuus.
+Mikä osa työstä olisi sinulle luonnollista tai helppoa?
     &lt;/p&gt;
     &lt;&lt;textbox &quot;$vahvuudet&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;6. Ammatin hyvät puolet&lt;/label&gt;
+    &lt;h3&gt;6. Mitkä asiat tässä ammatissa voisivat olla kivoja tai hyviä?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Mitkä ovat ammatin parhaat puolet?
+ Luova työ, mahdollisuus ilmaista itseään, vaihtelevuus, esiintyminen, projektien valmistuminen, onnistumisen tunteet, keikkatyön vapaus, oman tyylin kehittäminen, näkyvyys.
     &lt;/p&gt;
    &lt;&lt;textbox &quot;$hyvatPuolet&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;7. Ammatin haasteet&lt;/label&gt;
+    &lt;h3&gt;7. Mikä voisi olla haastavaa tai vaikeaa tässä työssä?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Mitkä asiat voivat olla vaativia tai kuormittavia tässä ammatissa?
+Epäsäännölliset työajat, keikkaluonteisuus, kilpailu alalla, inspiksen puute välillä, tiukat aikataulut, asiakkaiden toiveet, portfolio- ja näyttövaatimukset.
+Miten tällaiset haasteet sopisivat sinulle?
     &lt;/p&gt;
      &lt;&lt;textbox &quot;$haasteet&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;8. Palkkaus&lt;/label&gt;
+    &lt;h3&gt;8. Miltä palkka ja taloudellinen puoli näyttävät?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Selvitä mahdollisuuksien mukaan ammatin palkkatasoa tai kirjoita
-      lyhyt arvio palkkauksesta.
+Millainen palkka/korvaus alalla on aluksi? (esim. freelancer-työ, tuntipalkka, projektipalkkiot…)
+Tuntuisiko tämä palkkataso riittävältä arkeesi ja harrastuksiisi?
     &lt;/p&gt;
    &lt;&lt;textbox &quot;$palkkaus&quot; &quot;&quot;&gt;&gt;
 
   &lt;/div&gt;
+  
+  &lt;div class=&quot;lomake-ryhma&quot;&gt;
+    &lt;h3&gt;9. Miltä sinusta tuntuisi kokeilla harjoittelua tai työssäoppimista tällä alalla?&lt;/h3&gt;
+    &lt;p class=&quot;lomake-ohje&quot;&gt;
+Haluaisitko päästä kokeilemaan “oikeaa” työtilannetta?
+Olisitko valmis oppimaan uusia ohjelmia, esiintymään, tekemään projekteja, työskentelemään tiimeissä?
+Mitä uskot oppivasi harjoittelussa?
+    &lt;/p&gt;
+   &lt;&lt;textbox &quot;$harjoittelu&quot; &quot;&quot;&gt;&gt;
+
+  &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;9. Oma yhteenvetosi&lt;/label&gt;
+    &lt;h3&gt;10. Yhteenveto — sopisiko tämä taidealan ammatti sinulle?&lt;/h3&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Miksi tämä ammatti voisi sopia sinulle – tai miksi ei?
+Perustele rehellisesti: miksi tämä ala voisi sopia sinulle?
+Mitä huolia tai kysymyksiä sinulla vielä on?
+Mitä sinun pitäisi selvittää lisää ennen päätöksentekoa?
     &lt;/p&gt;
      &lt;&lt;textbox &quot;$yhteenvetoOmaNakyma&quot; &quot;&quot;&gt;&gt;
 
@@ -1547,8 +1626,7 @@ Testin lopuksi näet yhteenvedon siitä, kuinka hyvin kiinnostuksesi ja vahvuute
   &lt;hr&gt;
 
   &lt;p&gt;
-    Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan
-    Google Docs -dokumenttiin tai ladata vastaukset tekstitiedostona.
+Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dokumenttiin tai ladata vastaukset tekstitiedostona.
   &lt;/p&gt;
 
   &lt;h2&gt;Valittu ammatti&lt;/h2&gt;
@@ -1571,10 +1649,14 @@ Testin lopuksi näet yhteenvedon siitä, kuinka hyvin kiinnostuksesi ja vahvuute
 
   &lt;h2&gt;Haasteet&lt;/h2&gt;
   &lt;p&gt;&lt;&lt;print $haasteet&gt;&gt;&lt;/p&gt;
+    
+  &lt;h2&gt;Harjoittelu&lt;/h2&gt;
+  &lt;p&gt;&lt;&lt;print $harjoittelu&gt;&gt;&lt;/p&gt;
 
   &lt;h2&gt;Palkkaus&lt;/h2&gt;
   &lt;p&gt;&lt;&lt;print $palkkaus&gt;&gt;&lt;/p&gt;
-
+  
+   
   &lt;h2&gt;Oma yhteenvetosi&lt;/h2&gt;
   &lt;p&gt;&lt;&lt;print $yhteenvetoOmaNakyma&gt;&gt;&lt;/p&gt;
 
@@ -2177,6 +2259,8 @@ Testin lopuksi näet yhteenvedon siitä, kuinka hyvin kiinnostuksesi ja vahvuute
     Sulje välilehti
   &lt;/button&gt;
 &lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="36" name="Cover" tags="" position="525,25" size="100,100">
+&lt;&lt;link &quot;&lt;div class=&#39;cover-art&#39;&gt;&lt;h1&gt;Humanistinen ja Taideala&lt;/h1&gt;&lt;/div&gt;&quot; &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
