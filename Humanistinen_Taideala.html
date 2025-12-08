@@ -104,7 +104,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Humanistinen_Taideala" startnode="1" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="e2a2ec89-eb94-4b65-bed7-47ac8f7985ae" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ============================================================
+	<tw-storydata name="Humanistinen_Taideala" startnode="36" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="e2a2ec89-eb94-4b65-bed7-47ac8f7985ae" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ============================================================
    TEMPLATE-CSS – TEEMAVÄRIT YHESSÄ PAIKASSA (VAIHDA NÄITÄ)
    ============================================================ */
 
@@ -1089,6 +1089,35 @@ a.external-link:active,
     font-size: 2.4rem;
     letter-spacing: 0.14em;
   }
+}
+.cover-art h1 {
+  text-decoration: none !important;
+}
+.cover-art a,
+.cover-art a:visited,
+.cover-art a:hover {
+  text-decoration: none !important;
+  border: none !important;
+}
+.cover-art * {
+  text-decoration: none !important;
+}
+/* Kansisivun linkki ei saa alleviivausta eikä rajoja */
+.cover-link,
+.cover-link:link,
+.cover-link:visited,
+.cover-link:hover,
+.cover-link:active {
+  text-decoration: none !important;
+  border: none !important;
+  color: inherit !important;
+  display: block;
+}
+
+/* Kansisivun otsikko ilman viivoja tms. */
+.cover-art h1 {
+  text-decoration: none !important;
+  border: none !important;
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ============================================================
    AUTOMAATTINEN NAVIPALKIN JA POISTU-NAPIN LUONTI (SugarCube)
@@ -2260,7 +2289,11 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
   &lt;/button&gt;
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="36" name="Cover" tags="" position="525,25" size="100,100">
-&lt;&lt;link &quot;&lt;div class=&#39;cover-art&#39;&gt;&lt;h1&gt;Humanistinen ja Taideala&lt;/h1&gt;&lt;/div&gt;&quot; &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;a class=&quot;cover-link&quot; onclick=&quot;Engine.play(&#39;Start&#39;);&quot;&gt;
+  &lt;div class=&quot;cover-art&quot;&gt;
+    &lt;h1&gt;Humanistinen ja taideala&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
