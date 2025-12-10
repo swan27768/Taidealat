@@ -1119,6 +1119,78 @@ a.external-link:active,
   text-decoration: none !important;
   border: none !important;
 }
+/* Cover-wrapper varmistaa, että muut linkit eivät kärsi */
+.cover-wrapper a {
+  text-decoration: none !important;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  margin: 0;
+  display: block;
+  color: inherit !important;
+}
+
+/* Varsinainen taidekansi */
+.cover-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 70vh;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 179, 71, 0.45), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255, 79, 129, 0.45), transparent 60%),
+    radial-gradient(circle at 50% 10%, rgba(122, 211, 255, 0.40), transparent 60%),
+    #150926;
+
+  border-top: 8px solid #ffb347;
+  border-bottom: 8px solid #ff4f81;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+
+  padding: 2.5rem 1rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Otsikko EI saa mitään viivoja ympärille */
+.cover-art h1 {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  font-size: 3.4rem;
+  letter-spacing: 0.20em;
+
+  background: linear-gradient(90deg, #ffb347, #ff4f81, #7ad3ff);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+
+  border: none !important;
+  text-decoration: none !important;
+}
+
+/* Hover-efekti kannelle */
+.cover-art:hover {
+  cursor: pointer;
+  filter: brightness(1.08);
+  transform: scale(1.01);
+  transition: 0.25s ease;
+}
+
+/* Mobiili */
+@media (max-width: 768px) {
+  .cover-art h1 {
+    font-size: 2.4rem;
+    letter-spacing: 0.14em;
+  }
+}
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ============================================================
    AUTOMAATTINEN NAVIPALKIN JA POISTU-NAPIN LUONTI (SugarCube)
    ============================================================ */
@@ -1323,11 +1395,7 @@ Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia teknii
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
    [[Sopiiko tämä ala sinulle - Testaa!-&gt;Ammattitesti: alku]]
-   [[Tiesitkö, että ... -&gt;For You]]
-	[[Taide-alan koulutus -&gt;Taideala_koulut]]
-    [[Humanistisen alan koulutus -&gt;Humanisti_koulu]]
-    [[Siirry suoraan ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
-  &lt;/div&gt;
+  
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="750,100" size="100,100">:: StoryInit
 &lt;&lt;set $pisteet = 0&gt;&gt;
@@ -1361,7 +1429,7 @@ Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia teknii
 [[Yritysten talouslukuja ja markkinointia-&gt;Väärin 1]]
 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="4" name="Jatkatko" tags="" position="400,1050" size="100,100">:: Jatkatko
+</tw-passagedata><tw-passagedata pid="4" name="Jatkatko" tags="" position="450,1050" size="100,100">:: Jatkatko
 &lt;h1&gt;Haluatko jatkaa?&lt;/h1&gt;
 &lt;p&gt;Tämä voidaan näyttää esim. 4 kysymyksen välein.&lt;/p&gt;
 
@@ -1373,21 +1441,15 @@ Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia teknii
   &lt;hr&gt;
 
   &lt;p&gt;
-    Olet jaksanut kulkea tämän [alan] tarinan loppuun asti. Se kertoo,
-    että sinulla on sinnikkyyttä, halua oppia uutta ja uskallusta pohtia
-    omaa tulevaisuuttasi – samoja taitoja, joita työelämässä arvostetaan.
+Olet jaksanut kulkea tämän matkan loppuun asti. Se kertoo, että sinulla on sinnikkyyttä, halua oppia uutta ja uskallusta pohtia omaa tulevaisuuttasi – samoja taitoja, joita työelämässä arvostetaan.
   &lt;/p&gt;
 
   &lt;p&gt;
-    Työelämä tarvitsee monenlaisia osaajia: käytännön tekijöitä,
-    suunnittelijoita, ongelmanratkaisijoita ja tutkijoita. Jokaisella on
-    oma paikkansa – myös sinulla.
+Työelämä tarvitsee monenlaisia osaajia: käytännön tekijöitä, suunnittelijoita, ongelmanratkaisijoita ja tutkijoita. Jokaisella on oma paikkansa – myös sinulla.
   &lt;/p&gt;
 
   &lt;p&gt;
-    Voit halutessasi palata tutkimaan eri ammatteja, katsoa ammattivideoita,
-    selata oppilaitosten sivuja tai aloittaa testin alusta ja nähdä,
-    herääkö uusia ajatuksia.
+Voit halutessasi palata tutkimaan eri ammatteja, katsoa ammattivideoita, selata oppilaitosten sivuja tai aloittaa testin alusta ja nähdä, herääkö uusia ajatuksia.
   &lt;/p&gt;
 
   &lt;p class=&quot;highlight&quot; style=&quot;text-align:center; margin-top:2rem;&quot;&gt;
@@ -1395,9 +1457,9 @@ Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia teknii
   &lt;/p&gt;
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Palaa tarinan alkuun-&gt;Start]]
+    [[Palaa alkuun-&gt;Start]]
     &lt;button class=&quot;exit-btn&quot; onclick=&quot;confirmExitStory()&quot;&gt;
-      Sulje esitys
+      Sulje
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1645,8 +1707,8 @@ Testin lopuksi näet yhteenvedon siitä, kuinka hyvin kiinnostuksesi ja vahvuute
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
    [[Humanistisen alan koulutus -&gt;Humanisti_koulu]]
-    [[Siirry ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
-    [[Palaa alkuun-&gt;Start]]
+   [[Tehtäväsivu-&gt;Ammattitutkimus: lomake]]
+  
   &lt;/div&gt;
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="9" name="Ammattitutkimus: yhteenveto" tags="" position="825,500" size="100,100">:: Ammattitutkimus: yhteenveto
@@ -1696,7 +1758,7 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
   &lt;/div&gt;
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Palaa muokkaamaan vastauksia-&gt;Ammattitutkimus: lomake]]
+   [[Palaute-&gt;Loppusivu]]
     [[Palaa alkuun-&gt;Start]]
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1837,7 +1899,7 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
     [[Seuraava kysymys-&gt;Jatkatko]]
   &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="18" name="Väärin 3" tags="" position="475,950" size="100,100">
+</tw-passagedata><tw-passagedata pid="18" name="Väärin 3" tags="" position="550,925" size="100,100">
 &lt;div class=&quot;quiz-result wrong&quot;&gt;
   &lt;h2&gt;Ei aivan.&lt;/h2&gt;
   &lt;hr&gt;
@@ -2094,12 +2156,9 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
   &lt;&lt;/if&gt;&gt;
 
   &lt;div class=&quot;result-btn-area&quot;&gt;
-    [[Takaisin alkuun-&gt;Start]]
+
     [[Tiesitkö, että ... -&gt;For You]]
-	[[Taide-alan koulutus -&gt;Taideala_koulut]]
-    [[Humanistisen alan koulutus -&gt;Humanisti_koulu]]
-    [[Siirry  ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
-  
+	
 
 
   &lt;/div&gt;
@@ -2113,10 +2172,10 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
   &lt;/div&gt;
 
   &lt;div class=&quot;result-btn-area&quot;&gt;
-    [[Takaisin alkuun-&gt;Start]]
-	[[Taide-alan koulutus -&gt;Taideala_koulut]]
+ 
+	[[Seuraava sivu: Taide-alan koulutus -&gt;Taideala_koulut]]
     [[Humanistisen alan koulutus -&gt;Humanisti_koulu]]
-    [[Siirry  ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
+   
   &lt;/div&gt;
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="33" name="FactDisplay" tags="" position="350,75" size="100,100">
@@ -2267,8 +2326,8 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
   [[Taide-alan koulutus -&gt;Taideala_koulut]]
-   [[Siirry ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
-   [[Palaa alkuun-&gt;Start]]
+   [[Tehtäväsivu-&gt;Ammattitutkimus: lomake]]
+
   &lt;/div&gt;
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="35" name="Poistu" tags="" position="1075,100" size="100,100">:: Poistu
@@ -2288,12 +2347,11 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
     Sulje välilehti
   &lt;/button&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="36" name="Cover" tags="" position="525,25" size="100,100">
-&lt;a class=&quot;cover-link&quot; onclick=&quot;Engine.play(&#39;Start&#39;);&quot;&gt;
-  &lt;div class=&quot;cover-art&quot;&gt;
-    &lt;h1&gt;Humanistinen ja taideala&lt;/h1&gt;
-  &lt;/div&gt;
-&lt;/a&gt;
+</tw-passagedata><tw-passagedata pid="36" name="Cover" tags="" position="525,25" size="100,100">&lt;div class=&quot;cover-wrapper&quot;&gt;
+  &lt;&lt;link &quot;&lt;div class=&#39;cover-art&#39;&gt;&lt;h1&gt;Humanistiset ja taidealat&lt;/h1&gt;&lt;/div&gt;&quot;&gt;&gt;
+    &lt;&lt;goto &quot;Start&quot;&gt;&gt;
+  &lt;&lt;/link&gt;&gt;
+&lt;/div&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
