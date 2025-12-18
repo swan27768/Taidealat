@@ -1191,6 +1191,34 @@ a.external-link:active,
     letter-spacing: 0.14em;
   }
 }
+
+/* Cover-sivulla EI yläpaddigia eikä navbaria */
+body.cover-page {
+  padding-top: 0 !important;
+}
+
+/* Navbar piiloon Coverissa */
+body.cover-page .navbar-fixed {
+  display: none !important;
+}
+
+/* Cover-art lukitaan keskelle */
+body.cover-page .cover-art {
+  min-height: 100vh;              /* koko näkymän korkeus */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Julistefiilis: koko tekstilaatikko hieman ylemmäs */
+body.cover-page .cover-art {
+  transform: translateY(-60px); /* säädä: -40px … -120px */
+}
+
+/* Julistefiilis: otsikko hieman ylemmäs */
+body.cover-page .cover-art h1 {
+  transform: translateY(-60px); /* säädä: -20px … -80px */
+}
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ============================================================
    AUTOMAATTINEN NAVIPALKIN JA POISTU-NAPIN LUONTI (SugarCube)
    ============================================================ */
@@ -1379,7 +1407,10 @@ window.confirmExitStory = function () {
     ]
   }
 ]
-</script><tw-passagedata pid="1" name="Start" tags="" position="575,100" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+</script><tw-passagedata pid="1" name="Start" tags="" position="575,100" size="100,100">
+&lt;&lt;run document.body.classList.remove(&#39;cover-page&#39;)&gt;&gt;
+
+&lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;HUMANISTINEN  JA TAIDEALA&lt;/h1&gt;
   &lt;hr&gt;
 &lt;div class=&quot;scroll-row&quot;&gt;&lt;span class=&quot;scroll-content&quot;&gt;Kuvataiteilija • Graafinen suunnittelija • Mediapalvelujen toteuttaja • Muusikko • Tanssija • Teatteritaiteilija • Näyttelijä • Valokuvaaja • Videokuvaaja • Mediatuottaja • Äänisuunnittelija • Käsikirjoittaja • Animaattori • Illustrator • Keramiikkataiteilija • Korusuunnittelija • Sirkustaiteilija • Kulttuurituottaja • Taidepedagogi • Draamaohjaaja • Nuoriso- ja yhteisöohjaaja • Lastenohjaaja • Yhteisöpedagogi • Kieltenopettaja • Viittomakielen ohjaaja • Kirjastonhoitaja • Somesisällöntuottaja • Mediavisualisti •&lt;/span&gt;&lt;/div&gt;
@@ -2347,10 +2378,17 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
     Sulje välilehti
   &lt;/button&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="36" name="Cover" tags="" position="525,25" size="100,100">&lt;div class=&quot;cover-wrapper&quot;&gt;
-  &lt;&lt;link &quot;&lt;div class=&#39;cover-art&#39;&gt;&lt;h1&gt;Humanistiset ja taidealat&lt;/h1&gt;&lt;/div&gt;&quot;&gt;&gt;
-    &lt;&lt;goto &quot;Start&quot;&gt;&gt;
-  &lt;&lt;/link&gt;&gt;
+</tw-passagedata><tw-passagedata pid="36" name="Cover" tags="" position="525,25" size="100,100">
+&lt;&lt;run document.body.classList.add(&#39;cover-page&#39;)&gt;&gt;
+
+&lt;style&gt;
+  .navbar-fixed {
+    display: none !important;
+  }
+&lt;/style&gt;
+
+&lt;div class=&quot;cover-art&quot;&gt;
+  &lt;h1&gt;Humanistiset ja taidealat&lt;/h1&gt;
 &lt;/div&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
