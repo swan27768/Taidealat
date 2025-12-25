@@ -1028,197 +1028,101 @@ a.external-link:active,
   transform: translateY(2px);
   box-shadow: 0 2px 0 rgba(0,0,0,0.55);
 }
-/* ============================= */
-/* TAIDEALAN KANSI — HEHKU & GALLERIA */
-/* ============================= */
+//* ============================================================
+   TAIDEALAN KANSISIVU – KOKO SIVU KLIKATTAVA JULISTE
+   ============================================================ */
 
-.cover-art {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Koko sivun peittävä linkkialue */
+.cover-link-art {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: block;
+  text-decoration: none;
+}
 
+/* Julistepohja */
+.cover-poster-art {
   width: 100%;
-  min-height: 70vh;
+  height: 100%;
 
-  /* Taidehenkinen gradientti */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 18vh;   /* otsikko ylemmäs = julistefiilis */
+
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 179, 71, 0.45), transparent 60%),
-    radial-gradient(circle at 80% 70%, rgba(255, 79, 129, 0.45), transparent 60%),
-    radial-gradient(circle at 50% 10%, rgba(122, 211, 255, 0.40), transparent 60%),
-    #150926;
+    radial-gradient(circle at 20% 25%, rgba(255,179,71,0.45), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255,79,129,0.45), transparent 60%),
+    radial-gradient(circle at 50% 10%, rgba(122,211,255,0.35), transparent 60%),
+    var(--bg-body);
 
-  /* ”Kehys” galleriamaisesti */
-  border-top: 8px solid #ffb347;
-  border-bottom: 8px solid #ff4f81;
-
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
-
-  padding: 2.5rem 1rem;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.cover-art h1 {
-  margin: 0;
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-
-  /* Iso, näyttävä otsikko */
-  font-size: 3.4rem;
-  letter-spacing: 0.20em;
-
-  /* Hohtava taideväri */
-  background: linear-gradient(90deg, #ffb347, #ff4f81, #7ad3ff);
-  -webkit-background-clip: text;
-  color: transparent;
-
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
-}
-
-.cover-art:hover {
   cursor: pointer;
-  filter: brightness(1.08);
-  transform: scale(1.01);
-  transition: 0.25s ease;
 }
 
-/* Mobiili */
-@media (max-width: 768px) {
-  .cover-art h1 {
-    font-size: 2.4rem;
-    letter-spacing: 0.14em;
-  }
-}
-.cover-art h1 {
-  text-decoration: none !important;
-}
-.cover-art a,
-.cover-art a:visited,
-.cover-art a:hover {
-  text-decoration: none !important;
-  border: none !important;
-}
-.cover-art * {
-  text-decoration: none !important;
-}
-/* Kansisivun linkki ei saa alleviivausta eikä rajoja */
-.cover-link,
-.cover-link:link,
-.cover-link:visited,
-.cover-link:hover,
-.cover-link:active {
-  text-decoration: none !important;
-  border: none !important;
-  color: inherit !important;
-  display: block;
-}
-
-/* Kansisivun otsikko ilman viivoja tms. */
-.cover-art h1 {
-  text-decoration: none !important;
-  border: none !important;
-}
-/* Cover-wrapper varmistaa, että muut linkit eivät kärsi */
-.cover-wrapper a {
-  text-decoration: none !important;
-  border: none !important;
-  background: none !important;
-  box-shadow: none !important;
-  padding: 0;
-  margin: 0;
-  display: block;
-  color: inherit !important;
-}
-
-/* Varsinainen taidekansi */
-.cover-art {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  min-height: 70vh;
-
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255, 179, 71, 0.45), transparent 60%),
-    radial-gradient(circle at 80% 70%, rgba(255, 79, 129, 0.45), transparent 60%),
-    radial-gradient(circle at 50% 10%, rgba(122, 211, 255, 0.40), transparent 60%),
-    #150926;
-
-  border-top: 8px solid #ffb347;
-  border-bottom: 8px solid #ff4f81;
-
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
-
-  padding: 2.5rem 1rem;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-/* Otsikko EI saa mitään viivoja ympärille */
-.cover-art h1 {
-  margin: 0;
+/* Iso näyttävä otsikko */
+.cover-title-art {
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 900;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 
-  font-size: 3.4rem;
-  letter-spacing: 0.20em;
+  font-size: clamp(3.2rem, 9vw, 6rem);
 
   background: linear-gradient(90deg, #ffb347, #ff4f81, #7ad3ff);
   -webkit-background-clip: text;
   color: transparent;
 
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
-
-  border: none !important;
-  text-decoration: none !important;
+  text-align: center;
+  text-shadow: 0 0 22px rgba(255,255,255,0.25);
 }
 
-/* Hover-efekti kannelle */
-.cover-art:hover {
-  cursor: pointer;
-  filter: brightness(1.08);
-  transform: scale(1.01);
-  transition: 0.25s ease;
-}
-
-/* Mobiili */
-@media (max-width: 768px) {
-  .cover-art h1 {
-    font-size: 2.4rem;
-    letter-spacing: 0.14em;
-  }
-}
-
-/* Cover-sivulla EI yläpaddigia eikä navbaria */
-body.cover-page {
-  padding-top: 0 !important;
-}
-
-/* Navbar piiloon Coverissa */
-body.cover-page .navbar-fixed {
+/* Navbar piiloon vain taide-coverissa */
+body.hide-navbar-art .navbar-fixed {
   display: none !important;
 }
 
-/* Cover-art lukitaan keskelle */
-body.cover-page .cover-art {
-  min-height: 100vh;              /* koko näkymän korkeus */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* Julistefiilis: koko tekstilaatikko hieman ylemmäs */
-body.cover-page .cover-art {
-  transform: translateY(-60px); /* säädä: -40px … -120px */
+/* ============================= */
+/* AMMATTITUTKIMUS – isot kirjoituskentät */
+/* ============================= */
+
+/* Kaikki tekstikentät ja textarea */
+#passages .passage input[type="text"],
+#passages .passage textarea {
+  width: 100% !important;          /* koko sivun levy */
+  max-width: 100% !important;
+  box-sizing: border-box;
+
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+
+  border: 2px solid rgba(255, 179, 71, 0.8);
+  background: rgba(15, 6, 30, 0.9);
+  color: #fff;
 }
 
-/* Julistefiilis: otsikko hieman ylemmäs */
-body.cover-page .cover-art h1 {
-  transform: translateY(-60px); /* säädä: -20px … -80px */
+/* Varsinaiset kirjoituskentät (iso korkeus) */
+#passages .passage textarea {
+  min-height: 8rem;       /* peruskorkeus */
+  resize: vertical;      /* saa venyttää ylöspäin */
 }
 
+/* TÄRKEÄ: pidemmille vastauslaatikoille vielä isompi */
+#passages .passage textarea.long-answer {
+  min-height: 14rem;     /* isot esseelaatikot */
+}
+
+/* Mobiili */
+@media (max-width: 768px) {
+  #passages .passage input[type="text"],
+  #passages .passage textarea {
+    font-size: 1rem;
+  }
+}
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ============================================================
    AUTOMAATTINEN NAVIPALKIN JA POISTU-NAPIN LUONTI (SugarCube)
    ============================================================ */
@@ -1413,13 +1317,10 @@ window.confirmExitStory = function () {
 &lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;HUMANISTINEN  JA TAIDEALA&lt;/h1&gt;
   &lt;hr&gt;
-&lt;div class=&quot;scroll-row&quot;&gt;&lt;span class=&quot;scroll-content&quot;&gt;Kuvataiteilija • Graafinen suunnittelija • Mediapalvelujen toteuttaja • Muusikko • Tanssija • Teatteritaiteilija • Näyttelijä • Valokuvaaja • Videokuvaaja • Mediatuottaja • Äänisuunnittelija • Käsikirjoittaja • Animaattori • Illustrator • Keramiikkataiteilija • Korusuunnittelija • Sirkustaiteilija • Kulttuurituottaja • Taidepedagogi • Draamaohjaaja • Nuoriso- ja yhteisöohjaaja • Lastenohjaaja • Yhteisöpedagogi • Kieltenopettaja • Viittomakielen ohjaaja • Kirjastonhoitaja • Somesisällöntuottaja • Mediavisualisti •&lt;/span&gt;&lt;/div&gt;
-
   &lt;p&gt;
- &lt;strong&gt;Taideala&lt;/strong&gt; tarjoaa mahdollisuuden ilmaista itseään ja käyttää luovuutta monissa eri tehtävissä. Alalla voi esimerkiksi piirtää, kuvata, esiintyä, muotoilla tai tuottaa mediasisältöjä.
-
-Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia tekniikoita ja kehitetään omaa ilmaisua. Ala sopii sinulle, jos pidät luovasta työstä ja haluat tehdä omia ideoitasi näkyviksi. &lt;/p&gt;
+&lt;strong&gt;Taideala&lt;/strong&gt; tarjoaa mahdollisuuden ilmaista itseään ja käyttää luovuutta monissa eri tehtävissä. Alalla voi esimerkiksi piirtää, kuvata, esiintyä, muotoilla tai tuottaa mediasisältöjä. Taideopinnoissa tehdään paljon käytännön harjoituksia, opitaan uusia tekniikoita ja kehitetään omaa ilmaisua. Ala sopii sinulle, jos pidät luovasta työstä ja haluat tehdä omia ideoitasi näkyviksi. &lt;/p&gt;
 &lt;p&gt;
+ &lt;hr&gt;
 &lt;strong&gt;Humanistisella ja kasvatusalalla&lt;/strong&gt; työskentelevät ovat useimmiten tekemisissä toisten ihmisten kanssa. He saattavat tehdä työtä esimerkiksi vapaa-ajan ohjauksen tehtävissä, kuten nuoriso-ohjaajina. Alalla täytyy tulla toimeen sekä yksittäisten ihmisten että ryhmien kanssa. Vuorovaikutustaidot ovat tärkeitä. On osattava kuunnella ja osoittaa ymmärrystä ja empatiaa, myötäelämisen taitoa. Tarvittaessa on pystyttävä myös olemaan jämäkkä. Ohjaajan täytyy pitää tilanne hallinnassa ja ohjat käsissään.
   &lt;/p&gt;
   
@@ -1499,11 +1400,10 @@ Voit halutessasi palata tutkimaan eri ammatteja, katsoa ammattivideoita, selata 
   &lt;hr&gt;
 
   &lt;p&gt;
-Valitse jokin humanistisen tai taidealan ammatti, joka sinua kiinnostaa. Tutki sitä luotettavista lähteistä (esim. Työmarkkinatori, Duunitori, oppilaitosten sivut). Vastaa kysymyksiin mahdollisimman konkreettisesti ja &lt;strong&gt; omin sanoin&lt;/strong&gt;.
+Valitse jokin humanistisen tai taidealan ammatti, joka sinua kiinnostaa. Tutki sitä luotettavista lähteistä (esim. Työmarkkinatori, Duunitori, oppilaitosten sivut). Vastaa kysymyksiin mahdollisimman konkreettisesti ja &lt;strong&gt; omin sanoin&lt;/strong&gt;. 
   &lt;/p&gt;
-
   &lt;p&gt;
-    Lopuksi saat yhteenvedon vastauksistasi, jonka voit kopioida omaan Google Docs -dokumenttiisi tai ladata vastaukset tekstitiedostona.
+Lopuksi saat vastauksistasi yhteenvedon, jonka voit ladata tiedostona ja kopioida Google Docsiin tai Google Slidesiin viimeistelyä varten.
   &lt;/p&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
@@ -1520,7 +1420,8 @@ Valitse jokin humanistisen tai taidealan ammatti, joka sinua kiinnostaa. Tutki s
     &lt;p class=&quot;lomake-ohje&quot;&gt;
  Missä tätä alaa voi opiskella? (Ammatillinen koulutus, kansanopisto, lukio + jatkokoulutus, AMK, yliopisto…)  Millaista osaamista tai taitoja koulutuksessa tarvitaan? (esim. portfolio, pääsykokeet, taidot somessa, musikaalisuus, kuvallinen ilmaisu…)
     &lt;/p&gt;
-    &lt;&lt;textbox &quot;$KoulutusPolku&quot; &quot;&quot;&gt;&gt;
+    &lt;textarea class=&quot;long-answer&quot;&gt;&lt;/textarea&gt;
+
 
   &lt;/div&gt;
 
@@ -1531,7 +1432,7 @@ Mitä tekisit työssäsi? (esim. kuvaamista, editointia, piirtämistä, esiintym
 Millainen rytmi työssä on: päivätyö, esityskaudet, keikkatyö, projektit?
 Sopisiko tällainen arki sinulle?
     &lt;/p&gt;
-    &lt;&lt;textbox &quot;$tyotehtavat&quot; &quot;&quot;&gt;&gt;
+    &lt;textarea class=&quot;long-answer&quot;&gt;&lt;/textarea&gt;
 
   &lt;/div&gt;
 
@@ -1541,7 +1442,8 @@ Sopisiko tällainen arki sinulle?
 Onko työ studiossa, teatterissa, keikkapaikoilla, mediatoimistossa, koulussa, omassa työhuoneessa, ulkona…?
 Millainen työympäristö tuntuu sinulle sopivalta: rauhallinen, luova tiimi, omatoiminen työskentely, esiintyminen ihmisten edessä?
     &lt;/p&gt;
- &lt;&lt;textbox &quot;$tyopaikat&quot; &quot;&quot;&gt;&gt;
+ &lt;textarea class=&quot;long-answer&quot;&gt;&lt;/textarea&gt;
+
 
   &lt;/div&gt;
 
@@ -1560,7 +1462,7 @@ Mikä osa työstä olisi sinulle luonnollista tai helppoa?
     &lt;p class=&quot;lomake-ohje&quot;&gt;
  Luova työ, mahdollisuus ilmaista itseään, vaihtelevuus, esiintyminen, projektien valmistuminen, onnistumisen tunteet, keikkatyön vapaus, oman tyylin kehittäminen, näkyvyys.
     &lt;/p&gt;
-   &lt;&lt;textbox &quot;$hyvatPuolet&quot; &quot;&quot;&gt;&gt;
+   &lt;textarea class=&quot;long-answer&quot;&gt;&lt;/textarea&gt;
 
   &lt;/div&gt;
 
@@ -1570,7 +1472,8 @@ Mikä osa työstä olisi sinulle luonnollista tai helppoa?
 Epäsäännölliset työajat, keikkaluonteisuus, kilpailu alalla, inspiksen puute välillä, tiukat aikataulut, asiakkaiden toiveet, portfolio- ja näyttövaatimukset.
 Miten tällaiset haasteet sopisivat sinulle?
     &lt;/p&gt;
-     &lt;&lt;textbox &quot;$haasteet&quot; &quot;&quot;&gt;&gt;
+  &lt;textarea class=&quot;long-answer&quot;&gt;&lt;/textarea&gt;
+
 
   &lt;/div&gt;
 
@@ -1602,7 +1505,8 @@ Perustele rehellisesti: miksi tämä ala voisi sopia sinulle?
 Mitä huolia tai kysymyksiä sinulla vielä on?
 Mitä sinun pitäisi selvittää lisää ennen päätöksentekoa?
     &lt;/p&gt;
-     &lt;&lt;textbox &quot;$yhteenvetoOmaNakyma&quot; &quot;&quot;&gt;&gt;
+  &lt;textarea class=&quot;long-answer&quot;&gt;&lt;/textarea&gt;
+
 
   &lt;/div&gt;
 
@@ -2379,17 +2283,19 @@ Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan  Google Docs -dok
   &lt;/button&gt;
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="36" name="Cover" tags="" position="525,25" size="100,100">
-&lt;&lt;run document.body.classList.add(&#39;cover-page&#39;)&gt;&gt;
+&lt;&lt;run document.body.classList.add(&#39;hide-navbar-art&#39;)&gt;&gt;
 
-&lt;style&gt;
-  .navbar-fixed {
-    display: none !important;
-  }
-&lt;/style&gt;
-
-&lt;div class=&quot;cover-art&quot;&gt;
-  &lt;h1&gt;Humanistiset ja taidealat&lt;/h1&gt;
+&lt;div class=&quot;cover-link-art&quot;&gt;
+  &lt;div class=&quot;cover-poster-art&quot;&gt;
+    &lt;h1 class=&quot;cover-title-art&quot;&gt;TAIDEALA&lt;/h1&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;&lt;script&gt;&gt;
+$(document).one(&quot;click keypress&quot;, function () {
+  Engine.play(&quot;Start&quot;);
+});
+&lt;&lt;/script&gt;&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
